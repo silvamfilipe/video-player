@@ -28,3 +28,7 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Google_Service_YouTube:
+        class: Google_Service_YouTube
+        arguments: ['@Google_Client']
