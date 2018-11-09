@@ -32,3 +32,8 @@ services:
     Google_Service_YouTube:
         class: Google_Service_YouTube
         arguments: ['@Google_Client']
+
+    htmlcompress:
+        class: Twig\Extensions\TextExtension
+        tags:
+            - { name: twig.extension }

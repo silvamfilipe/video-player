@@ -98,6 +98,7 @@ class GoogleVideoProvider implements VideoProvider
             'id,snippet',
             [
                 'q' => $searchTerm,
+                'type' => 'video',
                 'maxResults' => 10
             ]
         );

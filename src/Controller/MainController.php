@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Services\VideoService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
@@ -21,14 +22,18 @@ class MainController extends AbstractController
 
     /**
      * @Route("/")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function home()
+    public function home(Request $request)
     {
-        $videos = $this->videos->videoList();
+        $pattern = $request->query->get('pattern', '');
+        $results = $request->query->get('results', '10');
+        $videos = $this->videos->videoList($pattern);
         $player = $this->videos->render($this->videos->first());
         return $this->render(
             'home.html.twig',
-            compact('videos', 'player')
+            compact('videos', 'player', 'pattern', 'results')
         );
     }
 }

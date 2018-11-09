@@ -9,7 +9,13 @@
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input name="pattern" class="form-control mr-sm-2" type="text" placeholder="Search videos..." aria-label="Search">
+            <select class="form-control" name="results">
+                <option {{ results==6 ? 'selected' }} value="6">6</option>
+                <option {{ results==12 ? 'selected' }} value="12">12</option>
+                <option {{ results==24 ? 'selected' }} value="24">24</option>
+                <option {{ results==36 ? 'selected' }} value="36">36</option>
+            </select>&nbsp;
+            <input name="pattern" class="form-control mr-sm-2" type="text" placeholder="Search videos..." aria-label="Search" value="{{ pattern }}">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>

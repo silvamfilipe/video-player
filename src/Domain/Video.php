@@ -26,7 +26,6 @@ class Video
 
     /**
      * @var string
-     * @Route()
      */
     private $thumbnail;
 
